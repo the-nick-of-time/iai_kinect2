@@ -878,7 +878,7 @@ private:
     OUT_INFO("waiting for clients to connect");
     double nextFrame = ros::Time::now().toSec() + deltaT;
     double fpsTime = ros::Time::now().toSec();
-    size_t oldFrameIrDepth = 0, oldFrameColor = 0;
+    // size_t oldFrameIrDepth = 0, oldFrameColor = 0;
     nextColor = true;
     nextIrDepth = true;
 
@@ -897,28 +897,28 @@ private:
       if(now - fpsTime >= 3.0)
       {
         fpsTime = now - fpsTime;
-        size_t framesIrDepth = frameIrDepth - oldFrameIrDepth;
-        size_t framesColor = frameColor - oldFrameColor;
-        oldFrameIrDepth = frameIrDepth;
-        oldFrameColor = frameColor;
+        // size_t framesIrDepth = frameIrDepth - oldFrameIrDepth;
+        // size_t framesColor = frameColor - oldFrameColor;
+        // oldFrameIrDepth = frameIrDepth;
+        // oldFrameColor = frameColor;
 
         lockTime.lock();
-        double tColor = elapsedTimeColor;
-        double tDepth = elapsedTimeIrDepth;
-        elapsedTimeColor = 0;
-        elapsedTimeIrDepth = 0;
+        // double tColor = elapsedTimeColor;
+        // double tDepth = elapsedTimeIrDepth;
+        // elapsedTimeColor = 0;
+        // elapsedTimeIrDepth = 0;
         lockTime.unlock();
 
-      //   if(isSubscribedDepth)
-      //   {
-      //     OUT_INFO("depth processing: " FG_YELLOW "~" << (tDepth / framesIrDepth) * 1000 << "ms" NO_COLOR " (~" << framesIrDepth / tDepth << "Hz) publishing rate: " FG_YELLOW "~" << framesIrDepth / fpsTime << "Hz" NO_COLOR);
-      //   }
-      //   if(isSubscribedColor)
-      //   {
-      //     OUT_INFO("color processing: " FG_YELLOW "~" << (tColor / framesColor) * 1000 << "ms" NO_COLOR " (~" << framesColor / tColor << "Hz) publishing rate: " FG_YELLOW "~" << framesColor / fpsTime << "Hz" NO_COLOR);
-      //   }
-      //   fpsTime = now;
-      // }
+        // if(isSubscribedDepth)
+        // {
+        //   OUT_INFO("depth processing: " FG_YELLOW "~" << (tDepth / framesIrDepth) * 1000 << "ms" NO_COLOR " (~" << framesIrDepth / tDepth << "Hz) publishing rate: " FG_YELLOW "~" << framesIrDepth / fpsTime << "Hz" NO_COLOR);
+        // }
+        // if(isSubscribedColor)
+        // {
+        //   OUT_INFO("color processing: " FG_YELLOW "~" << (tColor / framesColor) * 1000 << "ms" NO_COLOR " (~" << framesColor / tColor << "Hz) publishing rate: " FG_YELLOW "~" << framesColor / fpsTime << "Hz" NO_COLOR);
+        // }
+        fpsTime = now;
+      }
 
       if(now >= nextFrame)
       {
@@ -931,8 +931,8 @@ private:
 
       if(!deviceActive)
       {
-        oldFrameIrDepth = frameIrDepth;
-        oldFrameColor = frameColor;
+        // oldFrameIrDepth = frameIrDepth;
+        // oldFrameColor = frameColor;
         lockTime.lock();
         elapsedTimeColor = 0;
         elapsedTimeIrDepth = 0;
