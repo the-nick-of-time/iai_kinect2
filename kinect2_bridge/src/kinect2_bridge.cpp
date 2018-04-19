@@ -909,16 +909,16 @@ private:
         elapsedTimeIrDepth = 0;
         lockTime.unlock();
 
-        if(isSubscribedDepth)
-        {
-          OUT_INFO("depth processing: " FG_YELLOW "~" << (tDepth / framesIrDepth) * 1000 << "ms" NO_COLOR " (~" << framesIrDepth / tDepth << "Hz) publishing rate: " FG_YELLOW "~" << framesIrDepth / fpsTime << "Hz" NO_COLOR);
-        }
-        if(isSubscribedColor)
-        {
-          OUT_INFO("color processing: " FG_YELLOW "~" << (tColor / framesColor) * 1000 << "ms" NO_COLOR " (~" << framesColor / tColor << "Hz) publishing rate: " FG_YELLOW "~" << framesColor / fpsTime << "Hz" NO_COLOR);
-        }
-        fpsTime = now;
-      }
+      //   if(isSubscribedDepth)
+      //   {
+      //     OUT_INFO("depth processing: " FG_YELLOW "~" << (tDepth / framesIrDepth) * 1000 << "ms" NO_COLOR " (~" << framesIrDepth / tDepth << "Hz) publishing rate: " FG_YELLOW "~" << framesIrDepth / fpsTime << "Hz" NO_COLOR);
+      //   }
+      //   if(isSubscribedColor)
+      //   {
+      //     OUT_INFO("color processing: " FG_YELLOW "~" << (tColor / framesColor) * 1000 << "ms" NO_COLOR " (~" << framesColor / tColor << "Hz) publishing rate: " FG_YELLOW "~" << framesColor / fpsTime << "Hz" NO_COLOR);
+      //   }
+      //   fpsTime = now;
+      // }
 
       if(now >= nextFrame)
       {
